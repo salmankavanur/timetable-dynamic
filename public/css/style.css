@@ -1,0 +1,254 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.timetable {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 90%;
+    max-width: 800px;
+    margin-top: 20px; /* Added margin-top to prevent clipping */
+}
+
+h2 {
+    text-align: center;
+    background-color: #2e3192;
+    color: #fff;
+    padding: 15px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #2e3192;
+    color: white;
+}
+
+th, td {
+    padding: 12px 10px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+tbody tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr.qlive {
+    background-color: #02745b;
+    color: #ffffff; /* Ensure text is visible */
+}
+
+tbody tr.interval {
+    background-color: #2e3192;
+    color: white;
+}
+
+tbody tr.has {
+    background-color: #2196f3;
+    color: white;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+/* Day-specific color coding */
+td.monday {
+    background-color: #007bff;
+    color: #fff;
+}
+
+td.tuesday {
+    background-color: #663399;
+    color: #fff;
+}
+
+td.wednesday {
+    background-color: #ff8c00;
+    color: #fff;
+}
+
+td.thursday {
+    background-color: #009688;
+    color: #fff;
+}
+
+td.friday {
+    background-color: #e91e63;
+    color: #fff;
+}
+
+td.saturday {
+    background-color: #9c27b0;
+    color: #fff;
+}
+
+td.sunday {
+    background-color: #454ba0;
+    color: #fff;
+}
+
+.totals {
+    margin-top: 20px;
+  }
+
+.total-hours {
+    font-weight: bold;
+  }  
+
+/* Button Styles */
+.notification-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.notification-btn:hover {
+    background-color: #45a049;
+}
+
+/* Legend for Platform Colors */
+.legend {
+    margin-top: 15px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.legend p {
+    display: inline-block;
+    margin: 5px 7px;
+    font-size: 0.85rem;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.legend-color.has {
+    background-color: #2196f3;
+}
+
+.legend-color.interval {
+    background-color: #2e3192;
+}
+
+.legend-color.qlive {
+    background-color: #02745b;
+}
+
+
+.color-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.color-box.monday {
+    background-color: #007bff;
+}
+
+.color-box.tuesday {
+    background-color: #663399;
+}
+
+.color-box.wednesday {
+    background-color: #ff8c00;
+}
+
+.color-box.thursday {
+    background-color: #009688;
+}
+
+.color-box.friday {
+    background-color: #e91e63;
+}
+
+.color-box.saturday {
+    background-color: #9c27b0;
+}
+
+.color-box.sunday {
+    background-color: #454ba0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .timetable {
+        width: 100%;
+        margin-top: 10px; /* Reduced margin for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #fff;
+    }
+
+    tbody tr td {
+        text-align: left;
+        display: block;
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
+
+    tbody tr td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+    }
+}
