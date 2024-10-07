@@ -10,8 +10,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\Eloquent\Builder; // Added back
+use Illuminate\Database\Eloquent\SoftDeletingScope; // Added back
 
 class StudentResource extends Resource
 {
@@ -23,7 +23,10 @@ class StudentResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')  // Add the 'name' field for students
+                    ->label('Student Name')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -31,10 +34,14 @@ class StudentResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')  // Display the 'name' field in the table
+                    ->label('Student Name')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters([
-                //
+                // Use SoftDeletingScope for soft delete filtering, if needed
+                Tables\Filters\TrashedFilter::make() // This will allow filtering by trashed (soft deleted) records
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -49,7 +56,7 @@ class StudentResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            // Relations can be added here if needed
         ];
     }
 
