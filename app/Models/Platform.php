@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Platform extends Model
 {
-    public function schedules()
-    {
-        return $this->hasMany(TimeSchedule::class);
-    }
+    use HasFactory;
+
+    protected $fillable = [
+        'name',  // Add name to fillable
+    ];
 }
